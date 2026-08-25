@@ -22,6 +22,17 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+            // CI-only release signing: enabled when KEYSTORE_PATH is set
+            // (GitHub Actions). Local builds stay unsigned unless configured.
+            val keystorePath = System.getenv("KEYSTORE_PATH")
+            if (!keystorePath.isNullOrBlank()) {
+                signingConfig = signingConfigs.create("release").apply {
+                    storeFile = file(keystorePath)
+                    storePassword = System.getenv("KEYSTORE_PASSWORD").orEmpty()
+                    keyAlias = System.getenv("KEY_ALIAS").orEmpty()
+                    keyPassword = System.getenv("KEY_PASSWORD").orEmpty()
+                }
+            }
         }
     }
 

@@ -44,6 +44,19 @@
 
 网页前端位于 `app/src/main/assets/www/`（大厅 + 各游戏页面，游戏在 `www/games/{id}/`），随 APK 内置发布，无在线更新通道。APK 升级（`versionCode` 变化）时 `WwwStore` 会自动用内置资源刷新磁盘副本。
 
+## 发布版（Release）构建
+
+签名 keystore（`huddle-release.p12`）仅保存在本地，不入库。CI（GitHub Actions）构建签名版时通过环境变量注入：
+
+| 环境变量 | 说明 |
+|----------|------|
+| `KEYSTORE_PATH` | keystore 文件路径（CI 中由 `KEYSTORE_BASE64` 解码生成） |
+| `KEYSTORE_PASSWORD` | keystore 口令 |
+| `KEY_ALIAS` | 密钥别名（`huddle`） |
+| `KEY_PASSWORD` | 密钥口令 |
+
+本地构建未设置这些变量时，`assembleRelease` 产物为未签名 APK（`app-release-unsigned.apk`），不影响 `assembleDebug`。
+
 ## 运行
 
 Android Studio 打开本目录，或安装
