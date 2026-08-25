@@ -2,6 +2,8 @@
 
 > 一台手机变成游戏服务器，朋友们扫码就能加入——没有互联网也能一起玩。
 
+![Build](https://github.com/520MianXiangDuiXiang520/Huddle/actions/workflows/build-android.yml/badge.svg)
+
 Huddle 是一个面向「没有互联网」场景的局域网多人游戏平台。高铁、飞机、露营、旅行、朋友聚会……只要大家连上同一台手机的热点（或同一 Wi-Fi），就能马上开局。
 
 ## 为什么是 Huddle
