@@ -1,0 +1,32 @@
+---
+description: After code changes, bump versions and package the APK correctly.
+alwaysApply: true
+---
+
+# Huddle 发布与版本
+
+每次改完代码、准备交付时，先判断改动范围，再动手打包。Huddle 不再使用 OTA 热更新，所有网页资源随 APK 内置发布。
+
+## 1. 判断改动范围
+
+网页资源来自 `android-host/app/src/main/assets/www/`，随 APK 一起发布，没有独立在线更新通道。因此任何改动（无论是否改 Kotlin）最终都要打新 APK。
+
+- 只改 `assets/www/**`：仍需打 APK，因为客人通过房主 HTTP 服务读取房主磁盘上的 www，而磁盘 www 在 APK 升级（`versionCode` 变化）时由 `WwwStore` 自动刷新。
+- 改 Kotlin / `res/` / Gradle / Manifest：必须打 APK。
+
+## 2. APK 版本怎么涨
+
+当前版本在 `android-host/app/build.gradle.kts` 的 `versionName` / `versionCode`。
+
+| 变更性质 | `versionName` | 还要做 |
+| --- | --- | --- |
+| 较大功能 / 体验重构 / 协议或导航级改动 | 第三段 +1，如 `0.3.14` → `0.3.15` | **必须**更新 `strings.xml` 的 `changelog_text` |
+| 修 bug / 小文案 / 小交互修补 | 第四段 +1，如 `0.3.14.03` → `0.3.14.04` | changelog 可选，一句即可 |
+
+- 每次打 APK 都递增整数 `versionCode`。
+- 网页资源随 APK 内置发布：APK 升级（`versionCode` 变化）时 `WwwStore` 会自动用内置 `assets/www` 刷新磁盘副本，无需额外版本号。
+- 产出命名：`Huddle-<versionName>-vc<versionCode>-debug.apk`。
+
+## 3. 交付时说明
+
+回复用户时写清：本次是 **APK** 发布、版本号、以及大版本时 changelog 要点。

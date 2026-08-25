@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="bg">#0F1419</color>
+    <color name="surface">#1A222C</color>
+    <color name="surface_muted">#232B36</color>
+    <color name="accent">#3DDC97</color>
+    <color name="accent_dim">#2A9B6A</color>
+    <color name="text_primary">#F2F5F8</color>
+    <color name="text_secondary">#9AA7B5</color>
+    <color name="danger">#E85D5D</color>
+    <color name="stroke">#FFFFFF1A</color>
+    <color name="ic_launcher_background">#0F1419</color>
+    <color name="nav_icon">#9AA7B5</color>
+    <color name="badge_soon">#E0B44E</color>
+    <color name="color_bg">#0F1419</color>
+    <color name="color_surface">#1A222C</color>
+    <color name="color_surface_muted">#232B36</color>
+    <color name="color_text">#F2F5F8</color>
+    <color name="color_text_muted">#9AA7B5</color>
+    <color name="color_border">#FFFFFF1A</color>
+    <color name="color_action">#3DDC97</color>
+    <color name="color_danger">#E85D5D</color>
+</resources>

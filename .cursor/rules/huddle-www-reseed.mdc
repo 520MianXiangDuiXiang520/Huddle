@@ -1,0 +1,33 @@
+---
+description: 改了 assets/www 必须递增 versionCode，否则设备磁盘缓存不会刷新。
+alwaysApply: true
+---
+
+# Huddle 网页资源磁盘缓存
+
+## 陷阱（已踩过）
+
+网页资源在设备上是这样工作的：
+
+1. APK 内 `assets/www/**` 是「种子」。
+2. 首次启动 `WwwStore.prepare()` 把种子拷贝到设备外部存储 `.../files/www/`。
+3. 之后 HTTP 服务**只读磁盘这份副本**，不读 APK 内的种子。
+4. APK 覆盖安装时，外部存储的 www **不会被自动替换**。
+
+`WwwStore` 的刷新条件是：`上次种入的 versionCode != 当前 BuildConfig.VERSION_CODE`（或 `index.html` 缺失 / `forceReseed`）。
+
+## 规则
+
+**只要改了 `assets/www/**` 里的任何文件（HTML / CSS / JS / 游戏资源），就必须递增 `android-host/app/build.gradle.kts` 的 `versionCode`，否则用户安装后看到的还是旧网页。**
+
+- `versionName` 按发布规则（`huddle-release.mdc`）调整。
+- 只改 Kotlin、没动 www 时，`versionCode` 仍要递增（每次发 APK 都递增），但不会造成额外问题——`WwwStore` 会重种一遍 www，开销可接受。
+- 调试期本地迭代也同理：想让设备看到 www 变化，就 bump `versionCode` 再打包安装。
+- 不要重新引入独立的 www 内容版本号；统一用 `versionCode`。
+
+## 自检
+
+交付前确认：
+
+- [ ] 本次是否改了 `assets/www/**`？
+- [ ] 若改了，`versionCode` 是否已递增？

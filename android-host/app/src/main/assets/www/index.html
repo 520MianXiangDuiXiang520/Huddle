@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="light dark" />
+  <title>Huddle</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <div id="boot" class="boot">
+    <div class="boot-mark">HUDDLE</div>
+    <p class="boot-copy">正在进入房间</p>
+    <div class="boot-spin" aria-hidden="true"></div>
+  </div>
+
+  <div id="gate" class="gate" hidden>
+    <div class="gate-card" role="status" aria-live="polite">
+      <p class="gate-eyebrow">房间已结束</p>
+      <h1 class="gate-title">等待房主开启新游戏</h1>
+      <p id="gateText" class="gate-copy">上一局已关闭。房主再次开房后，这里会自动重新加入。</p>
+      <button id="gateRetry" type="button" class="btn primary gate-btn">立即重试连接</button>
+    </div>
+  </div>
+
+  <main class="shell" id="app" hidden>
+    <header class="chrome">
+      <div class="chrome-brand">
+        <span class="brand">Huddle</span>
+        <span id="webver" class="webver"></span>
+      </div>
+      <p id="banner" class="chrome-status" aria-live="polite"></p>
+      <div class="chrome-tools">
+        <div class="zoom-ctl">
+          <button id="zoomOut" type="button" aria-label="缩小游戏画布">−</button>
+          <button id="zoomIn" type="button" aria-label="放大游戏画布">+</button>
+          <button id="zoomReset" type="button" aria-label="重置缩放">1×</button>
+        </div>
+        <div class="connection-state" id="connState" role="status" aria-live="polite">
+          <span class="conn-dot" id="connDot" aria-hidden="true"></span>
+          <span id="connText">连接中</span>
+        </div>
+      </div>
+    </header>
+
+    <section class="lobby-bar" aria-label="大厅">
+      <div class="lobby">
+        <div class="lobby-col">
+          <h2 class="lobby-head">备战席</h2>
+          <div id="standby" class="seats" aria-label="备战席"></div>
+        </div>
+        <div class="lobby-col">
+          <h2 class="lobby-head">观战席</h2>
+          <div id="spectators" class="seats" aria-label="观战席"></div>
+        </div>
+      </div>
+      <div id="dock" class="dock" hidden></div>
+    </section>
+
+    <section class="arena" aria-label="游戏区">
+      <div class="board-viewport" id="boardViewport">
+        <div class="board-stage">
+          <div id="gameRoot" class="game-root" role="region" aria-label="游戏"></div>
+          <div id="pending" class="pending" hidden>
+            <div class="pending-spin" aria-hidden="true"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <p id="toast" class="toast" hidden></p>
+
+    <div id="victory" class="victory" hidden>
+      <div class="victory-card">
+        <div class="victory-title" id="victoryTitle"></div>
+        <div class="victory-sub" id="victorySub"></div>
+        <p class="victory-hint">轻触关闭</p>
+      </div>
+    </div>
+  </main>
+
+  <script src="/ws.js"></script>
+  <script src="/app.js"></script>
+</body>
+</html>

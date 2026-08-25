@@ -1,0 +1,7 @@
+node_modules/
+dist-test/
+local.properties
+.hvigor/
+build/
+oh_modules/
+signing/

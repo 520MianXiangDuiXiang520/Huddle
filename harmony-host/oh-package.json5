@@ -1,0 +1,11 @@
+{
+  "modelVersion": "5.0.0",
+  "name": "huddle-host",
+  "version": "0.3.17",
+  "description": "Huddle LAN party host for HarmonyOS NEXT",
+  "main": "",
+  "author": "Huddle",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {}
+}

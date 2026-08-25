@@ -1,0 +1,28 @@
+# macOS
+.DS_Store
+
+# 签名材料与发布产物（切勿提交）
+*.p12
+*.p7b
+*.keystore
+*.jks
+*.apk
+*.aab
+*.hap
+
+# Android
+android-host/.gradle/
+android-host/build/
+android-host/app/build/
+android-host/local.properties
+android-host/.idea/
+android-host/captures/
+
+# HarmonyOS
+harmony-host/build/
+harmony-host/.hvigor/
+harmony-host/.idea/
+harmony-host/local.properties
+harmony-host/node_modules/
+harmony-host/oh_modules/
+harmony-host/signing/

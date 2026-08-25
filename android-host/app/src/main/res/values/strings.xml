@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Huddle</string>
+    <string name="nav_home">首页</string>
+    <string name="nav_more">更多</string>
+    <string name="nav_settings">设置</string>
+    <string name="nav_about">关于</string>
+
+    <string name="more_eyebrow">Huddle</string>
+    <string name="more_title">更多</string>
+    <string name="more_subtitle">主题、存储，以及关于这款局域网派对 App 的说明。</string>
+    <string name="more_section_support">支持与说明</string>
+    <string name="more_feedback">意见反馈</string>
+    <string name="more_privacy">隐私政策</string>
+    <string name="more_donate">支持开发者</string>
+    <string name="more_row_chevron">›</string>
+    <string name="feedback_email">15364968962@163.com</string>
+    <string name="feedback_subject">Huddle 意见反馈</string>
+    <string name="feedback_body_template">请描述你遇到的问题或建议：\n\n\n——\nApp %1$s (%2$d)\n</string>
+    <string name="feedback_no_mail_app">未找到可用的邮件应用</string>
+    <string name="dialog_close">关闭</string>
+
+    <string name="privacy_policy_body">Huddle 是单机 / 局域网派对应用：开房与对局不依赖公网账号或云端服务器。\n\n聚会时，客人设备只与房主手机上的本地服务通信（同一热点 / Wi‑Fi），游戏状态保存在房主设备，不会上传到任何云端。\n\n我们收集什么\n· 本机生成的设备标识，仅用于断线后恢复你在房间中的身份，不会用于追踪或广告。\n· 主题、词库等设置保存在本机；你可在「更多」中查看占用并清理缓存。\n\n我们不收集什么\n· 不做广告追踪，不强制登录，不要求通讯录、精确定位等与开房无关的权限。\n· 不对棋局、词库或聊天内容做云端同步。\n\n你的控制权\n· 结束房间即停止本机服务；清理存储可恢复内置网页并清空缓存；卸载 App 可清除本机数据。\n· 如政策有更新，我们会随版本说明同步。</string>
+
+    <string name="donate_body">如果你觉得 Huddle 有帮助，欢迎请开发者喝杯咖啡。\n捐赠完全自愿，不影响任何功能。</string>
+    <string name="donate_copy">复制致谢信息</string>
+    <string name="donate_copy_value">感谢支持 Huddle · 局域网派对</string>
+    <string name="donate_copied">已复制</string>
+    <string name="donate_open_link">打开捐赠页</string>
+    <string name="donate_link_unavailable">捐赠链接尚未配置</string>
+    <!-- Replace with a real donate page when ready; leave non-http to keep offline-friendly. -->
+    <string name="donate_url"></string>
+    <string name="home_eyebrow">本机将成为房主</string>
+    <string name="home_greeting">把朋友聚到同一个房间</string>
+    <string name="home_hint">点选一款游戏开房，朋友扫码就能在浏览器加入。</string>
+    <string name="home_host_note_title">离线也能开局</string>
+    <string name="home_host_note_body">所有人连上同一热点或 Wi‑Fi；房间状态由这台手机保存。</string>
+    <string name="games_section">选择游戏</string>
+    <string name="games_section_hint">点一下可用游戏，即可确认是否开启房间。</string>
+    <string name="start_game">开始房间</string>
+    <string name="coming_soon">即将推出</string>
+    <string name="game_selected">已选择 · %1$s</string>
+    <string name="pick_available_game">请先选择一款已开放的游戏</string>
+    <string name="game_tap_to_start">点按开房</string>
+    <string name="game_config">配置</string>
+    <string name="game_config_a11y">配置%1$s</string>
+    <string name="game_card_a11y_available">%1$s，点按开启房间</string>
+    <string name="game_card_a11y_soon">%1$s，即将推出</string>
+
+    <string name="undercover_config_title">谁是卧底 · 词库</string>
+    <string name="undercover_config_hint">在此管理词组、人数与卧底数量。词库会保存在本机，一局结束后不会清空。用过的词组不再参与发牌，可手动重新加入。</string>
+    <string name="undercover_count_label">每局卧底人数</string>
+    <string name="undercover_min_players_label">最少入座人数</string>
+    <string name="undercover_max_players_label">最多入座人数</string>
+    <string name="undercover_unused_fmt">可用词组 %1$d / 共 %2$d</string>
+    <string name="undercover_unused_range_fmt">可用词组 %1$d / 共 %2$d · 开房 %3$s · 卧底 %4$d 人</string>
+    <string name="undercover_add_section">添加词组</string>
+    <string name="undercover_civilian_hint">平民词</string>
+    <string name="undercover_undercover_hint">卧底词</string>
+    <string name="undercover_add">加入词库</string>
+    <string name="undercover_add_invalid">请填写两个不同的词语</string>
+    <string name="undercover_list_section">词库列表</string>
+    <string name="undercover_reuse_all">全部重新加入</string>
+    <string name="undercover_reuse_all_done">已全部重新加入</string>
+    <string name="undercover_used">已使用</string>
+    <string name="undercover_reuse">重新加入</string>
+    <string name="undercover_delete">删除</string>
+
+    <string name="draw_guess_config_title">你画我猜 · 词库</string>
+    <string name="draw_guess_config_hint">在此管理猜词用语。词库保存在本机，一局结束后不会清空。用过的词不再参与抽词，可手动重新加入。</string>
+    <string name="draw_guess_unused_fmt">可用词语 %1$d / 共 %2$d</string>
+    <string name="draw_guess_add_section">添加词语</string>
+    <string name="draw_guess_word_hint">词语</string>
+    <string name="draw_guess_add">加入词库</string>
+    <string name="draw_guess_add_invalid">请填写词语</string>
+    <string name="draw_guess_list_section">词库列表</string>
+    <string name="draw_guess_reuse_all">全部重新加入</string>
+    <string name="draw_guess_reuse_all_done">已全部重新加入</string>
+    <string name="draw_guess_used">已使用</string>
+    <string name="draw_guess_reuse">重新加入</string>
+    <string name="draw_guess_delete">删除</string>
+
+    <string name="werewolf_config_title">狼人杀 · 角色配置</string>
+    <string name="werewolf_config_hint">在此配置每局的角色组合与人数范围。平民数量会自动按「入座人数 − 特殊角色」补齐。配置保存在本机，开房时按此发牌。</string>
+    <string name="werewolf_min_players_label">最少入座人数</string>
+    <string name="werewolf_max_players_label">最多入座人数</string>
+    <string name="werewolf_roles_section">角色配置</string>
+    <string name="start_room_confirm_title">开启房间？</string>
+    <string name="start_room_confirm_message">以「%1$s」创建房间（%2$s）。这台手机会成为房主服务器。</string>
+    <string name="start_room_confirm_ok">开启房间</string>
+    <string name="start_room_confirm_cancel">再看看</string>
+
+    <string name="invite">邀请</string>
+    <string name="room_title">房间</string>
+    <string name="invite_title">邀请好友加入</string>
+    <string name="invite_hint">请对方连接同一热点 / Wi‑Fi 后扫码，或在浏览器打开下方链接</string>
+    <string name="invite_close">关闭</string>
+    <string name="invite_copy_link">复制链接</string>
+    <string name="link_copied">链接已复制</string>
+    <string name="leave_room_title">结束房间？</string>
+    <string name="leave_room_message">你是房主。返回将结束房间，其他玩家也会断开。确定要结束吗？</string>
+    <string name="leave_room_confirm">结束房间</string>
+    <string name="leave_room_cancel">继续游戏</string>
+    <string name="server_running">房间已就绪 · 可以邀请朋友</string>
+    <string name="server_hint">客人请先连接同一热点 / Wi‑Fi，再扫码进入</string>
+    <string name="notification_title">Huddle 房间运行中</string>
+    <string name="notification_text">局域网游戏服务器已启动</string>
+    <string name="channel_name">房间服务</string>
+    <string name="waiting_server">正在启动服务器…</string>
+    <string name="local_ip_unknown">无法获取局域网 IP，请确认已连接 Wi‑Fi 或已开启热点</string>
+    <string name="server_unavailable_title">房间未能启动</string>
+    <string name="server_unavailable_confirm">返回首页</string>
+
+    <string name="settings_title">设置</string>
+    <string name="settings_theme">外观主题</string>
+    <string name="theme_system">跟随系统</string>
+    <string name="theme_light">浅色</string>
+    <string name="theme_dark">深色</string>
+    <string name="settings_storage">存储空间</string>
+    <string name="storage_total_fmt">已占用 %1$s</string>
+    <string name="storage_detail_fmt">网页资源 %1$s\n缓存 %2$s\n设置与其他 %3$s</string>
+    <string name="storage_clear_hint">清理会恢复内置网页并清空缓存；主题与各游戏词库会保留。</string>
+    <string name="storage_clear">清理存储</string>
+    <string name="storage_clear_title">清理存储？</string>
+    <string name="storage_clear_message">将清空缓存，并把网页资源恢复为 App 内置版本。主题偏好与各游戏词库不会删除。</string>
+    <string name="storage_clear_confirm">清理</string>
+    <string name="storage_clear_done">已清理存储</string>
+    <string name="settings_app_version">App 版本</string>
+    <string name="app_version_fmt">%1$s (%2$d)</string>
+
+    <string name="about_title">关于 Huddle</string>
+    <string name="about_body">一台手机变成局域网游戏服务器。朋友连上同一热点或 Wi‑Fi，扫码就能用浏览器加入——适合聚会、旅途和弱网场景。</string>
+    <string name="about_changelog">更新日志</string>
+    <string name="changelog_text">v0.3.17\n· 新增「斗地主」：3 人对战，叫分定地主，地主对抗两农民\n· 完整牌型校验（单/对/三/三带/顺子/连对/飞机/四带二/炸弹/火箭）\n· 叫分阶段 1/2/3 分，无人叫则重新发牌；出牌阶段轮流出牌或不要\n· 手牌私有下发，断线可追帧\n\nv0.3.16\n· 新增「狼人杀」：6–12 人，房主可配置狼人/预言家/女巫/猎人/守卫数量\n· 夜晚各角色私密操作，房主「天亮」结算；白天讨论后投票放逐\n· 女巫解药/毒药、守卫连守限制、猎人开枪、断线追帧\n· 角色配置保存在本机，开房时按配置发牌\n\nv0.3.15\n· 删除 OTA 在线资源更新功能，界面资源随 APK 内置\n· 重构大厅备战逻辑：进入房间自动按顺序入备战席，超出人数进观战席\n· 备战席与观战席改为两栏圆形头像展示，头像右下角显示准备角标\n· 备战席玩家可「观战 / 准备」，观战席玩家可「入席」\n\nv0.3.14.03\n· 更多页支持意见反馈（唤起邮件应用）\n\nv0.3.14.01\n· 修复房主身份被转让给普通玩家的问题（仅本机 Host WebView 为房主）\n\nv0.3.14\n· 新增「你画我猜」：一人作画、文字猜词，猜对或跳过结束\n· 自定义猜词词库，用过的词可重新加入\n· 画布笔迹局域网同步，断线可追帧\n\nv0.3.13.02\n· 可用游戏排在即将推出之前\n· 更多页可查看占用并清理缓存\n\nv0.3.13.01\n· 谁是卧底配置页样式与按钮触控优化\n· 支持 3 人开局，房主可配置最少/最多人数\n· 揭晓页加宽并适配宽屏\n\nv0.3.13\n· 新增「谁是卧底」：自定义词库、发牌与房主揭晓\n· 首页可配置词库与卧底人数，词组跨局持久化\n· 游戏状态支持按玩家私有下发；网页按游戏动态加载\n\nv0.3.10\n· 设置与关于合并为「更多」\n· 关房后客人进入统一等待页\n· 十五路标准五子棋棋盘\n\nv0.3.0\n· 首页选游戏、主题与网页资源\n· 五子棋旁观、座位与快照同步\n\nv0.2.0\n· Runtime：房间 / 玩家 / 插件\n· 五子棋 Demo\n\nv0.1.0\n· 局域网 HTTP + WebSocket PoC</string>
+</resources>

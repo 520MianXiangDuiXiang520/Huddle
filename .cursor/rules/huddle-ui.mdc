@@ -1,0 +1,16 @@
+---
+description: Apply Huddle's minimal, responsive, dual-theme UI system to Android shell and distributed web UI.
+globs: android-host/app/src/main/assets/www/**/*,android-host/app/src/main/res/**/*,android-host/app/src/main/java/com/huddle/host/ui/**/*.kt
+alwaysApply: false
+---
+
+# Huddle UI 规则
+
+- 开始前阅读 `design/huddle-ui-system.md`；复用其语义 token、间距、字号、圆角、状态和组件契约。
+- 原生 `colors.xml`/`values-night` 与网页 CSS token 必须按同一语义成对实现。不得只为一个端或一个主题补色。
+- 网页默认覆盖窄屏、中屏和大屏；不要将 `max-width: 480px` 作为所有设备的固定布局。使用动态视口和安全区，且不得禁用系统缩放。
+- 主操作最少且明确；重要状态必须用文字表达，颜色和图标只能辅助。关键错误、断线和房间结束不得只用 Toast。
+- 所有操作目标至少 44×44px，具备按下、禁用、加载和键盘焦点状态；图标按钮有可访问名称。
+- 动效仅用于反馈状态与层级，时长保持 100–280ms，并实现 `prefers-reduced-motion` 降级。禁止装饰性循环动效。
+- 平台 Shell 使用中性色和 Huddle action 色；游戏仅可在 `game-accent`、画布和游戏专属信息中表达主题，不能改变全局状态色或主操作语义。
+- 修改网页 Shell 时保持“状态栏 + 房间区 + 游戏区”结构。游戏专属 DOM/CSS/JS 放在 `games/<game-id>/`，不能把单一游戏结构写死到共享 Shell。

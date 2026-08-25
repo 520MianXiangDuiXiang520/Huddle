@@ -1,0 +1,13 @@
+---
+description: Preserve Huddle's LAN-host architecture and responsibilities.
+alwaysApply: true
+---
+
+# Huddle 产品边界
+
+- Huddle 的目标是让一台 Host 手机托管局域网游戏；客人扫码后以系统浏览器加入。
+- Host 原生层只负责选游戏、启动/维持本地服务、邀请、设置和 WebView 容器。不要在原生层实现游戏画面、游戏输入或游戏规则。
+- 房主 WebView 与客人浏览器必须加载同一套网页 UI；不要为房主创建功能不同的游戏界面。
+- 权威房间和游戏状态在 Host Runtime。客户端只渲染状态、发送操作，并处理断线恢复。
+- 网页资源来自 `android-host/app/src/main/assets/www/`，随 APK 内置发布，没有在线更新通道。修改网页资源时不要引入必须依赖在线 CDN 或外网服务的运行时能力。
+- 新游戏遵循 Kotlin `GamePlugin`、`GameCatalog` 与 `www/games/<game-id>/` 的边界；共享大厅不能硬编码某一个游戏的玩家数量、棋盘或术语。

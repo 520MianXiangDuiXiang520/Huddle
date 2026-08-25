@@ -1,0 +1,13 @@
+{
+  "name": "huddle-harmony-shared",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Huddle HarmonyOS NEXT shared authoritative runtime (TS) — typecheck + smoke tests",
+  "scripts": {
+    "typecheck": "tsc -p tsconfig.typecheck.json",
+    "test": "tsc --module commonjs --moduleResolution node --target ES2020 --outDir dist-test --skipLibCheck --strict --esModuleInterop test/esobject-shim.d.ts shared/runtime/index.ts shared/runtime/__test__/smoke.ts && node dist-test/__test__/smoke.js && rm -rf dist-test"
+  },
+  "devDependencies": {
+    "typescript": "^5.5.4"
+  }
+}

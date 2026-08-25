@@ -1,0 +1,243 @@
+.ww-root {
+  --game-accent: #8a2f3a;
+  --game-accent-soft: color-mix(in srgb, var(--game-accent) 16%, transparent);
+  --good: #2f7a4a;
+  --evil: #b03a4a;
+  width: 100%;
+  max-width: min(100%, 960px);
+  margin: 0 auto;
+  padding: var(--space-3) var(--space-4) var(--space-6);
+  box-sizing: border-box;
+}
+
+.ww-shell {
+  display: grid;
+  gap: var(--space-4);
+}
+
+.ww-hero {
+  display: grid;
+  gap: var(--space-3);
+  padding: clamp(18px, 4vw, 28px) clamp(16px, 4vw, 24px);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background:
+    radial-gradient(520px 220px at 50% 0%, var(--game-accent-soft), transparent 70%),
+    var(--color-surface);
+}
+
+.ww-eyebrow {
+  margin: 0;
+  color: var(--game-accent);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.ww-phase {
+  margin: 0;
+  color: var(--color-text);
+  font-family: var(--display);
+  font-size: clamp(20px, 4vw, 28px);
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.ww-hint {
+  margin: 0;
+  color: var(--color-text-muted);
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+.ww-role-card {
+  display: grid;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-4);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+}
+
+.ww-role-label {
+  margin: 0;
+  color: var(--color-text-muted);
+  font-size: 13px;
+}
+
+.ww-role-name {
+  margin: 0;
+  color: var(--color-text);
+  font-family: var(--display);
+  font-size: clamp(28px, 6vw, 40px);
+  font-weight: 700;
+  line-height: 1.15;
+}
+
+.ww-role-name.is-evil { color: var(--evil); }
+.ww-role-name.is-good { color: var(--good); }
+
+.ww-role-blurb {
+  margin: 0;
+  color: var(--color-text-muted);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.ww-fellows {
+  margin: 0;
+  color: var(--color-text);
+  font-size: 14px;
+}
+
+.ww-section {
+  display: grid;
+  gap: var(--space-2);
+}
+
+.ww-section-title {
+  margin: 0;
+  color: var(--color-text);
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.ww-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: var(--space-3);
+}
+
+.ww-player {
+  display: grid;
+  gap: 6px;
+  padding: var(--space-3);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  cursor: pointer;
+  text-align: left;
+  font: inherit;
+  color: var(--color-text);
+  transition: border-color 160ms ease, transform 100ms ease;
+}
+
+.ww-player:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.ww-player:not(:disabled):hover {
+  border-color: color-mix(in srgb, var(--game-accent) 50%, var(--color-border));
+}
+
+.ww-player:not(:disabled):active {
+  transform: scale(0.98);
+}
+
+.ww-player.is-dead {
+  opacity: 0.45;
+  cursor: default;
+}
+
+.ww-player.is-target {
+  border-color: var(--game-accent);
+  box-shadow: inset 0 0 0 1px var(--game-accent);
+}
+
+.ww-player-name {
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.ww-player-meta {
+  font-size: 12px;
+  color: var(--color-text-muted);
+}
+
+.ww-player.is-dead .ww-player-meta {
+  color: var(--evil);
+  font-weight: 700;
+}
+
+.ww-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+.ww-actions .btn {
+  min-height: 48px;
+}
+
+.ww-checks {
+  display: grid;
+  gap: var(--space-2);
+}
+
+.ww-check {
+  display: flex;
+  justify-content: space-between;
+  padding: var(--space-2) var(--space-3);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-surface);
+  font-size: 14px;
+}
+
+.ww-check-result.is-evil { color: var(--evil); font-weight: 700; }
+.ww-check-result.is-good { color: var(--good); font-weight: 700; }
+
+.ww-ready {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.ww-ready-chip {
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  font-size: 12px;
+  color: var(--color-text-muted);
+}
+
+.ww-ready-chip.is-ready {
+  color: var(--good);
+  border-color: color-mix(in srgb, var(--good) 50%, var(--color-border));
+}
+
+.ww-result {
+  display: grid;
+  gap: var(--space-3);
+  padding: var(--space-4);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+}
+
+.ww-result-title {
+  margin: 0;
+  font-family: var(--display);
+  font-size: clamp(22px, 4vw, 30px);
+  font-weight: 700;
+}
+
+.ww-result-title.is-werewolf { color: var(--evil); }
+.ww-result-title.is-villager { color: var(--good); }
+
+@media (min-width: 640px) {
+  .ww-grid {
+    grid-template-columns: repeat(auto-fill, minmax(168px, 1fr));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ww-player,
+  .ww-hero,
+  .ww-role-card {
+    transition: none;
+  }
+}

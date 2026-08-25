@@ -1,0 +1,210 @@
+.uc-root {
+  --game-accent: #c45c26;
+  --game-accent-soft: color-mix(in srgb, var(--game-accent) 16%, transparent);
+  width: 100%;
+  max-width: min(100%, 960px);
+  margin: 0 auto;
+  padding: var(--space-3) var(--space-4) var(--space-6);
+  box-sizing: border-box;
+}
+
+.uc-shell {
+  display: grid;
+  gap: var(--space-4);
+}
+
+.uc-hero {
+  display: grid;
+  gap: var(--space-3);
+  justify-items: center;
+  text-align: center;
+  padding: clamp(20px, 4vw, 36px) clamp(16px, 4vw, 28px);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background:
+    radial-gradient(520px 220px at 50% 0%, var(--game-accent-soft), transparent 70%),
+    var(--color-surface);
+}
+
+.uc-eyebrow {
+  margin: 0;
+  color: var(--game-accent);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.uc-label {
+  margin: 0;
+  color: var(--color-text-muted);
+  font-size: 14px;
+}
+
+.uc-word {
+  margin: 0;
+  color: var(--color-text);
+  font-family: var(--display);
+  font-size: clamp(40px, 8vw, 64px);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  line-height: 1.15;
+  word-break: break-word;
+}
+
+.uc-hint {
+  margin: 0;
+  max-width: 36rem;
+  color: var(--color-text-muted);
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+.uc-reveal {
+  min-width: 180px;
+  min-height: 48px;
+  margin-top: var(--space-2);
+}
+
+.uc-result {
+  display: grid;
+  gap: var(--space-4);
+}
+
+.uc-result-head {
+  display: grid;
+  gap: var(--space-2);
+  text-align: left;
+}
+
+.uc-result-role {
+  margin: 0;
+  color: var(--color-text);
+  font-family: var(--display);
+  font-size: clamp(20px, 3.5vw, 28px);
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.uc-wordpair {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-3);
+}
+
+.uc-pair-card {
+  padding: var(--space-4);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+}
+
+.uc-pair-card.uc-pair-undercover {
+  border-color: color-mix(in srgb, var(--game-accent) 50%, var(--color-border));
+  background:
+    linear-gradient(180deg, var(--game-accent-soft), transparent 70%),
+    var(--color-surface);
+}
+
+.uc-pair-label {
+  margin: 0 0 var(--space-2);
+  color: var(--color-text-muted);
+  font-size: 13px;
+}
+
+.uc-pair-word {
+  margin: 0;
+  color: var(--color-text);
+  font-family: var(--display);
+  font-size: clamp(28px, 5vw, 40px);
+  font-weight: 700;
+  line-height: 1.2;
+  word-break: break-word;
+}
+
+.uc-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(148px, 1fr));
+  gap: var(--space-3);
+}
+
+.uc-player-card {
+  display: grid;
+  gap: 6px;
+  min-height: 112px;
+  padding: var(--space-4) var(--space-3);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+}
+
+.uc-player-card.is-undercover {
+  border-color: color-mix(in srgb, var(--game-accent) 55%, var(--color-border));
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--game-accent) 25%, transparent);
+}
+
+.uc-player-name {
+  margin: 0;
+  color: var(--color-text);
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.uc-player-role {
+  margin: 0;
+  color: var(--color-text-muted);
+  font-size: 13px;
+}
+
+.uc-player-card.is-undercover .uc-player-role {
+  color: var(--game-accent);
+  font-weight: 700;
+}
+
+.uc-player-word {
+  margin: 0;
+  color: var(--color-text);
+  font-family: var(--display);
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1.2;
+  word-break: break-word;
+}
+
+@media (min-width: 640px) {
+  .uc-wordpair {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .uc-grid {
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  }
+}
+
+@media (min-width: 960px) {
+  .uc-root {
+    padding-inline: var(--space-6);
+  }
+
+  .uc-result-head {
+    align-items: end;
+    grid-template-columns: auto 1fr;
+    gap: var(--space-4);
+  }
+
+  .uc-result-role {
+    text-align: right;
+  }
+
+  .uc-grid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .uc-hero,
+  .uc-player-card,
+  .uc-pair-card {
+    transition: none;
+  }
+}

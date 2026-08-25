@@ -1,0 +1,151 @@
+/* Standard 15×15 Gomoku: stones on intersections, margin, star points. */
+.board {
+  --game-accent: #d4a574;
+  --line: #3a2818;
+  --cell: clamp(20px, min(5.4vw, 36px), 36px);
+  --pad: calc(var(--cell) / 2);
+  position: relative;
+  width: calc(var(--cell) * 15);
+  height: calc(var(--cell) * 15);
+  padding: var(--pad);
+  display: grid;
+  grid-template-columns: repeat(15, var(--cell));
+  grid-template-rows: repeat(15, var(--cell));
+  box-sizing: content-box;
+  background:
+    linear-gradient(160deg, rgba(255, 255, 255, 0.14), transparent 45%),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 2px,
+      rgba(90, 55, 20, 0.03) 2px,
+      rgba(90, 55, 20, 0.03) 3px
+    ),
+    var(--game-accent);
+  border: 3px solid #6b4423;
+  border-radius: 4px;
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.12),
+    0 2px 0 #5a3818;
+  touch-action: manipulation;
+  color-scheme: only light;
+  forced-color-adjust: none;
+}
+
+.board .cell {
+  appearance: none;
+  -webkit-appearance: none;
+  position: relative;
+  width: var(--cell);
+  height: var(--cell);
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  forced-color-adjust: none;
+  z-index: 1;
+}
+
+/* Cross lines through each intersection */
+.board .cell::before,
+.board .cell::after {
+  content: "";
+  position: absolute;
+  background: var(--line);
+  pointer-events: none;
+  opacity: 0.78;
+}
+.board .cell::before {
+  left: 50%;
+  top: 0;
+  width: 1px;
+  height: 100%;
+  transform: translateX(-50%);
+}
+.board .cell::after {
+  top: 50%;
+  left: 0;
+  height: 1px;
+  width: 100%;
+  transform: translateY(-50%);
+}
+
+/* Edge: lines stop at the outer intersections */
+.board .cell.edge-n::before { top: 50%; height: 50%; }
+.board .cell.edge-s::before { height: 50%; }
+.board .cell.edge-w::after { left: 50%; width: 50%; }
+.board .cell.edge-e::after { width: 50%; }
+
+/* Star points (星位): 四角 + 天元 */
+.board .star-dot {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 6px;
+  height: 6px;
+  margin: -3px 0 0 -3px;
+  border-radius: 50%;
+  background: var(--line);
+  opacity: 0.85;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.board .stone {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 86%;
+  height: 86%;
+  margin: 0;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  pointer-events: none;
+  forced-color-adjust: none;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
+}
+.board .stone.black {
+  background:
+    radial-gradient(circle at 32% 28%, #666 0%, #222 38%, #0a0a0a 100%);
+  border: 1px solid #000;
+}
+.board .stone.white {
+  background:
+    radial-gradient(circle at 32% 28%, #fff 0%, #f0ebe3 45%, #d8d0c4 100%);
+  border: 1px solid #7a7166;
+}
+.board .stone.pending {
+  opacity: 0.48;
+  animation: stone-wait 0.75s ease-in-out infinite;
+}
+.board .stone.last::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 22%;
+  height: 22%;
+  margin: -11% 0 0 -11%;
+  border-radius: 50%;
+  background: #c4473a;
+}
+.board .stone.black.last::after { background: #ff6b5a; }
+.board .stone.white.last::after { background: #c4473a; }
+
+@keyframes stone-wait {
+  50% { opacity: 0.22; }
+}
+
+.board.disabled .cell,
+.board.spectator .cell {
+  cursor: default;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .board .stone.pending {
+    animation: none;
+    opacity: 0.45;
+  }
+}

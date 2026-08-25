@@ -1,0 +1,9 @@
+{
+  "src": [
+    "pages/Index",
+    "pages/RoomPage",
+    "pages/WerewolfConfig",
+    "pages/UndercoverConfig",
+    "pages/DrawGuessConfig"
+  ]
+}

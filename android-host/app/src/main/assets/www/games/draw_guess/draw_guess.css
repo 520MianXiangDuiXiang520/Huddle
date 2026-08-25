@@ -1,0 +1,275 @@
+.dg-root {
+  --game-accent: #2a6f97;
+  --game-accent-soft: color-mix(in srgb, var(--game-accent) 14%, transparent);
+  --dg-canvas-bg: #fbfcfc;
+  width: 100%;
+  max-width: min(100%, 720px);
+  margin: 0 auto;
+  padding: var(--space-3) var(--space-4) var(--space-6);
+  box-sizing: border-box;
+}
+
+@media (prefers-color-scheme: dark) {
+  .dg-root {
+    --dg-canvas-bg: #1a2220;
+  }
+}
+
+.dg-shell {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.dg-status {
+  display: grid;
+  gap: var(--space-1);
+  padding: var(--space-3) var(--space-4);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background:
+    radial-gradient(420px 160px at 0% 0%, var(--game-accent-soft), transparent 70%),
+    var(--color-surface);
+}
+
+.dg-eyebrow {
+  margin: 0;
+  color: var(--game-accent);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}
+
+.dg-title {
+  margin: 0;
+  color: var(--color-text);
+  font-family: var(--display);
+  font-size: clamp(20px, 4.5vw, 28px);
+  font-weight: 700;
+  line-height: 1.25;
+  word-break: break-word;
+}
+
+.dg-hint {
+  margin: 0;
+  color: var(--color-text-muted);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.dg-board-wrap {
+  position: relative;
+  width: 100%;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--dg-canvas-bg);
+  overflow: hidden;
+  touch-action: none;
+}
+
+.dg-board-wrap::before {
+  content: "";
+  display: block;
+  padding-top: 75%;
+}
+
+.dg-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  cursor: crosshair;
+  touch-action: none;
+}
+
+.dg-canvas.is-readonly {
+  cursor: default;
+}
+
+.dg-tools {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  align-items: center;
+}
+
+.dg-tools[hidden],
+.dg-guess-bar[hidden],
+.dg-result[hidden] {
+  display: none !important;
+}
+
+.dg-colors {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.dg-color {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-sm);
+  border: 2px solid var(--color-border);
+  padding: 0;
+  background: var(--c);
+  cursor: pointer;
+}
+
+.dg-color.is-active {
+  border-color: var(--game-accent);
+  box-shadow: inset 0 0 0 2px var(--dg-canvas-bg);
+}
+
+.dg-color:focus-visible {
+  outline: 3px solid var(--color-action);
+  outline-offset: 2px;
+}
+
+.dg-btn {
+  min-height: 44px;
+  min-width: 44px;
+  padding: 0 14px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  color: var(--color-text);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.dg-btn:active {
+  transform: scale(0.98);
+}
+
+.dg-btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.dg-btn.danger {
+  border-color: color-mix(in srgb, var(--color-danger) 45%, var(--color-border));
+  color: var(--color-danger);
+}
+
+.dg-guess-bar {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: var(--space-2);
+  align-items: center;
+}
+
+.dg-guess-input {
+  min-height: 48px;
+  width: 100%;
+  padding: 0 14px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-surface);
+  color: var(--color-text);
+  font: inherit;
+  font-size: 16px;
+}
+
+.dg-guess-input:focus-visible {
+  outline: 3px solid var(--color-action);
+  outline-offset: 2px;
+}
+
+.dg-guess-send {
+  min-height: 48px;
+  min-width: 72px;
+  padding: 0 16px;
+  border: none;
+  border-radius: var(--radius-sm);
+  background: var(--color-action);
+  color: #fff;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.dg-guess-send:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.dg-feed {
+  display: grid;
+  gap: var(--space-2);
+  max-height: 160px;
+  overflow: auto;
+  padding: var(--space-3);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+}
+
+.dg-feed-empty {
+  margin: 0;
+  color: var(--color-text-muted);
+  font-size: 13px;
+}
+
+.dg-guess-item {
+  display: flex;
+  gap: var(--space-2);
+  align-items: baseline;
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.dg-guess-name {
+  color: var(--game-accent);
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.dg-guess-text {
+  color: var(--color-text);
+  word-break: break-word;
+}
+
+.dg-guess-item.is-correct .dg-guess-text {
+  color: var(--color-action);
+  font-weight: 700;
+}
+
+.dg-result {
+  display: grid;
+  gap: var(--space-2);
+  padding: var(--space-4);
+  border: 1px solid color-mix(in srgb, var(--game-accent) 45%, var(--color-border));
+  border-radius: var(--radius-md);
+  background:
+    linear-gradient(180deg, var(--game-accent-soft), transparent 80%),
+    var(--color-surface);
+  text-align: center;
+}
+
+.dg-result-label {
+  margin: 0;
+  color: var(--color-text-muted);
+  font-size: 13px;
+}
+
+.dg-result-word {
+  margin: 0;
+  color: var(--color-text);
+  font-family: var(--display);
+  font-size: clamp(28px, 6vw, 40px);
+  font-weight: 700;
+}
+
+.dg-result-detail {
+  margin: 0;
+  color: var(--color-text-muted);
+  font-size: 14px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dg-btn:active {
+    transform: none;
+  }
+}

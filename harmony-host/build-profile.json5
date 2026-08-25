@@ -1,0 +1,51 @@
+{
+  "app": {
+    "signingConfigs": [
+      {
+        "name": "default",
+        "type": "HarmonyOS",
+        "material": {
+          "certpath": "/Users/junbao/.ohos/config/default_harmony-host_steUmeeuASXegfhmglm5gD-nioLuKK8pTBzoGvjlzWc=.cer",
+          "keyAlias": "debugKey",
+          "keyPassword": "0000001B849FABCDC5A103126424688F63BFD51E609DCA688A3398211E721B0A00BF63F5E49EC00888CEDD",
+          "profile": "/Users/junbao/.ohos/config/default_harmony-host_steUmeeuASXegfhmglm5gD-nioLuKK8pTBzoGvjlzWc=.p7b",
+          "signAlg": "SHA256withECDSA",
+          "storeFile": "/Users/junbao/.ohos/config/default_harmony-host_steUmeeuASXegfhmglm5gD-nioLuKK8pTBzoGvjlzWc=.p12",
+          "storePassword": "0000001BACBCE3A8D8302510B71BA36BA7A5373F65B765C257A5593695ED48140A7A78D0BB2AA458FF24BC"
+        }
+      }
+    ],
+    "products": [
+      {
+        "name": "default",
+        "signingConfig": "default",
+        "compatibleSdkVersion": "5.0.0(12)",
+        "compileSdkVersion": "6.1.1(24)",
+        "runtimeOS": "HarmonyOS",
+        "targetSdkVersion": "6.1.1(24)"
+      }
+    ],
+    "buildModeSet": [
+      {
+        "name": "debug"
+      },
+      {
+        "name": "release"
+      }
+    ]
+  },
+  "modules": [
+    {
+      "name": "entry",
+      "srcPath": "./entry",
+      "targets": [
+        {
+          "name": "default",
+          "applyToProducts": [
+            "default"
+          ]
+        }
+      ]
+    }
+  ]
+}

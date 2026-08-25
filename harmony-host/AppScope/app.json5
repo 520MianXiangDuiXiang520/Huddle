@@ -1,0 +1,10 @@
+{
+  "app": {
+    "bundleName": "com.huddle.host",
+    "vendor": "Huddle",
+    "versionCode": 47,
+    "versionName": "0.3.19.08",
+    "icon": "$media:layered_image",
+    "label": "$string:app_name"
+  }
+}
