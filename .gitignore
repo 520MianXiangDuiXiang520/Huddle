@@ -6,6 +6,7 @@
 *.p7b
 *.keystore
 *.jks
+*.base64
 *.apk
 *.aab
 *.hap
